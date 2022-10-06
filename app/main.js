@@ -8,8 +8,8 @@ async function getBuscarLivrosDaAPI() {
 
     const res = await fetch(endpointDaAPI);
     livros = await res.json();
-    console.table(livros);
-    exibirOsLivros(livros);
+    let livrosComDesconto = aplicarDesconto(livros);
+    exibirOsLivros(livrosComDesconto);
 
 }
 
