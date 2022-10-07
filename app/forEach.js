@@ -1,13 +1,22 @@
 const elementoParaInserirLivros = document.getElementById('livros');
 
+/**
+ * It takes an array of objects and creates a div for each object, inserting the object's properties
+ * into the div.
+ * @param listaDeLivros - is the array of objects that I'm using to display the books.
+ */
 function exibirOsLivros(listaDeLivros) {
 
     elementoParaInserirLivros.innerHTML = '';
 
     listaDeLivros.forEach( livro => {
+
+       // let disponibilidadeLivros = verificarDisponibilidadeLivros(livro);
+        let disponibilidadeLivros = livros.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel';
+
         elementoParaInserirLivros.innerHTML += `
         <div class="livro">
-            <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" /> 
+            <img class="${disponibilidadeLivros}" src="${livro.imagem}" alt="${livro.alt}" /> 
             <h2 class="livro__titulo">
             ${livro.titulo}
             </h2>
@@ -21,4 +30,18 @@ function exibirOsLivros(listaDeLivros) {
         `
     })
 
+
 }
+/*
+function verificarDisponibilidadeLivros(livro) {
+
+    if(livro.quantidade > 0 ){
+        return 'livro__imagens'
+    } else {
+        return 'livro__imagens indisponivel'
+    }
+
+
+
+}
+*/
