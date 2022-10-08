@@ -1,4 +1,5 @@
 const elementoParaInserirLivros = document.getElementById('livros');
+const elementoValorTotalDeLivrosDisponiveis = document.getElementById('valor_total_livros_disponiveis')
 
 /**
  * It takes an array of objects and creates a div for each object, inserting the object's properties
@@ -7,12 +8,13 @@ const elementoParaInserirLivros = document.getElementById('livros');
  */
 function exibirOsLivros(listaDeLivros) {
 
+    elementoValorTotalDeLivrosDisponiveis.innerHTML = '';
     elementoParaInserirLivros.innerHTML = '';
 
     listaDeLivros.forEach( livro => {
 
        // let disponibilidadeLivros = verificarDisponibilidadeLivros(livro);
-        let disponibilidadeLivros = livros.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel';
+        let disponibilidadeLivros = livro.quantidade > 0 ? 'livro__imagens' : 'livro__imagens indisponivel';
 
         elementoParaInserirLivros.innerHTML += `
         <div class="livro">
